@@ -1,15 +1,31 @@
 const express = require('express')
+const mongoose = require('mongoose')
+
+const router = require('./routes/api/members')
+const dogs = require('./routes/api/dogs')
+//const dogs = require('./routes/api/dogs')
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello world...');
-});
+async function connectToDB(){
+    try {
+        await mongoose.connect('mongodb://localhost:27017/test')
+    } catch (error) {
+        console.log(error);
+        process.exit(1);
+    }
+}
 
-app.get('/users', (req, res) => {
-    res.json({msg: 'hello'});
-})
+connectToDB()
 
+
+
+//Body Parser Middleware
+app.use(express.json())
+
+//Members API Routes
+app.use('/api/members', router)
+app.use('/api/dogs', dogs)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => { console.log(`Server listen on port ${PORT}...`) })
