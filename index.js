@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const router = require('./routes/api/members')
 const dogs = require('./routes/api/dogs')
@@ -22,6 +23,9 @@ connectToDB()
 
 //Body Parser Middleware
 app.use(express.json())
+//CORS
+app.use(cors())
+
 
 //Members API Routes
 app.use('/api/members', router)
