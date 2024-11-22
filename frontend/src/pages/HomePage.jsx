@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table'
 import Container from 'react-bootstrap/Container';
 import DogsTable from '../components/DogsTable'
-
+import TeachersTable from '../components/TeachersTable';
 
 import React, { useState } from 'react'
 
@@ -47,6 +47,10 @@ const HomePage = () => {
     <Container>
         {showData && <DogsTable/>}
     </Container>
+    <Container>
+        {showData && <TeachersTable/>}
+    </Container>
+
   </>)
 }
 

@@ -4,7 +4,9 @@ const cors = require('cors')
 
 const router = require('./routes/api/members')
 const dogs = require('./routes/api/dogs')
+const teachersRouter = require('./routes/api/teachersRoutes')
 //const dogs = require('./routes/api/dogs')
+const connectToDBAtlas = require('./config/db')
 
 const app = express();
 
@@ -17,8 +19,8 @@ async function connectToDB(){
     }
 }
 
-connectToDB()
-
+//connectToDB()
+connectToDBAtlas()
 
 
 //Body Parser Middleware
@@ -30,6 +32,7 @@ app.use(cors())
 //Members API Routes
 app.use('/api/members', router)
 app.use('/api/dogs', dogs)
+app.use('/api/teachers', teachersRouter)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => { console.log(`Server listen on port ${PORT}...`) })
