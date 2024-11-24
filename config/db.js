@@ -1,9 +1,6 @@
 const mongoose = require('mongoose')
-const dotenv = require('dotenv')
 
-dotenv.config({ path: "config.env" })
-
-const connString = process.env.DB_STRING
+const connString = process.env.MONGO_URI
 
 async function connectToDBAtlas (){
     try {

@@ -31,9 +31,9 @@ const TeachersTable = () => {
       <tbody>
         {teachers.map(t => 
           <tr>
-            <th>{t.name}</th>
-            <th>{t.age}</th>
-            <th>{t.title}</th>
+            <td>{t.name}</td>
+            <td>{t.age}</td>
+            <td>{t.title}</td>
           </tr>
         )}
       </tbody>
