@@ -3,17 +3,20 @@ import { Route, Routes } from 'react-router-dom'
 
 import HomePage from './pages/HomePage'
 import CreatePage from './pages/CreatePage'
-import NavBarUI from './components/NavBarUI'
 import NavBar from './components/NavBar'
+import PostDog from './components/PostDog'
+import UpdateDog from './components/updateDog'
 
 function App() {
 
   return (
     <Box minH={"100vh"}>
-      <NavBar/>
+      <NavBar />
       <Routes>
-        <Route path='/' element={<HomePage/>} ></Route>
-        <Route path='create' element={<CreatePage/>} ></Route>
+        <Route path='/' element={<HomePage />} ></Route>
+        <Route path='create' element={<CreatePage />} ></Route>
+        <Route path='dog' element={<PostDog />} ></Route>
+        <Route path='dog/:id' element={<UpdateDog /> }></Route>
       </Routes>
     </Box>
   )
