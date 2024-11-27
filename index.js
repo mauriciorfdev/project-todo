@@ -7,7 +7,6 @@ const cors = require('cors')
 const router = require('./routes/api/members')
 const dogs = require('./routes/api/dogs')
 const teachersRouter = require('./routes/api/teachersRoutes')
-//const dogs = require('./routes/api/dogs')
 const connectToDBAtlas = require('./config/db')
 
 const app = express();
@@ -21,8 +20,8 @@ async function connectToDB(){
     }
 }
 
-//connectToDB()
-connectToDBAtlas()
+connectToDB()
+//connectToDBAtlas()
 
 
 //Body Parser Middleware
