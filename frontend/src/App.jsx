@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import HomePage from './pages/HomePage'
 import CreatePage from './pages/CreatePage'
+import NavBarUI from './components/NavBarUI'
 import NavBar from './components/NavBar'
 
 function App() {
