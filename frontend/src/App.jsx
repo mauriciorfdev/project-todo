@@ -6,6 +6,7 @@ import CreatePage from './pages/CreatePage'
 import NavBar from './components/NavBar'
 import PostDog from './components/PostDog'
 import UpdateDog from './components/updateDog'
+import NoMatch from './components/NoMatch'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path='create' element={<CreatePage />} ></Route>
         <Route path='dog' element={<PostDog />} ></Route>
         <Route path='dog/:id' element={<UpdateDog /> }></Route>
+        <Route path='*' element={<NoMatch />}></Route>
       </Routes>
     </Box>
   )
