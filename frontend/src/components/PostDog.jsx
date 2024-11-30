@@ -2,10 +2,16 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Toast from 'react-bootstrap/Toast'
 
 const PostDog = () => {
   const [name,setName] = useState('')
+  const [show, setShow] = useState(false)
   const navigate = useNavigate()
+
+  const handleShow = () => {
+    setShow(show => !show)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -18,9 +24,10 @@ const PostDog = () => {
         body: JSON.stringify({name})
       })
       const data = response.json();
-      console.log(data)
       console.log(JSON.stringify({name}))
-      navigate('/')
+      handleShow()
+      ;
+      
     } catch (error) {
       console.error(error.message)
     }
@@ -29,6 +36,7 @@ const PostDog = () => {
   return (<>
 
     <div>PostDog</div>
+    
     <Form onSubmit={handleSubmit}>
       <Form.Group className='mb-3'>
         <Form.Label>Dog Name</Form.Label>
@@ -42,6 +50,9 @@ const PostDog = () => {
       </Form.Group>
       <Button type='submit'>Submit</Button>
     </Form>
+    <Toast bg='success' onClose={handleShow} show={show} delay={1000} autohide>
+      <Toast.Body>Dog Inserted!</Toast.Body>
+    </Toast>
   </>)
 }
 
