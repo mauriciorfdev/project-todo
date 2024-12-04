@@ -21,8 +21,8 @@ const DogsTable = () => {
     fetchDogs()
   }, [])
 
-  function handleUpdate(dog) {
-    navigate(`dog/${dog._id}`)
+  function handleUpdate(dogId) {
+    navigate(`dog/${dogId}`)
   }
 
   return (<>
@@ -39,7 +39,7 @@ const DogsTable = () => {
           <tr key={dog.name}>
             <td>{dog.name}</td>
             <td>
-              <Button onClick={() => { handleUpdate(dog) }} >Update</Button>{' '}
+              <Button onClick={() => { handleUpdate(dog._id) }} >Update</Button>{' '}
               <Button variant='dark'>Delete</Button>
             </td>
 

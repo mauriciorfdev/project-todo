@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage'
 import CreatePage from './pages/CreatePage'
 import NavBar from './components/NavBar'
 import PostDog from './components/PostDog'
-import UpdateDog from './components/updateDog'
+import UpdateDog from './components/UpdateDog'
 import NoMatch from './components/NoMatch'
 
 function App() {
