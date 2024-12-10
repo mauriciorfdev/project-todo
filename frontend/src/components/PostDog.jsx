@@ -26,6 +26,9 @@ const PostDog = () => {
       const data = response.json();
       console.log(JSON.stringify({name}))
       handleShow()
+      setTimeout(() => {
+        navigate('/')
+      }, 1500);
       ;
       
     } catch (error) {
