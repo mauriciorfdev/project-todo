@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Toast from 'react-bootstrap/Toast'
+import ToastContainer from 'react-bootstrap/ToastContainer'
 
 const PostDog = () => {
   const [name,setName] = useState('')
   const [show, setShow] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
   const navigate = useNavigate()
 
   const handleShow = () => {
@@ -15,6 +17,7 @@ const PostDog = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsDisabled(true)
     try {
       const response = await fetch('http://localhost:5000/api/dogs', {
         method: 'POST',
@@ -23,8 +26,8 @@ const PostDog = () => {
         },
         body: JSON.stringify({name})
       })
-      const data = response.json();
-      console.log(JSON.stringify({name}))
+      const data = await response.json();
+      console.log(data)
       handleShow()
       setTimeout(() => {
         navigate('/')
@@ -51,11 +54,14 @@ const PostDog = () => {
           onChange={(e)=>{setName(e.target.value)}}
         />
       </Form.Group>
-      <Button type='submit'>Submit</Button>
+      <Button type='submit' disabled={isDisabled}>Submit</Button>
     </Form>
-    <Toast bg='success' onClose={handleShow} show={show} delay={1000} autohide>
-      <Toast.Body>Dog Inserted!</Toast.Body>
-    </Toast>
+    <ToastContainer position='top-end'>
+      <Toast  bg='success' onClose={handleShow} show={show} delay={1000} autohide>
+        <Toast.Body>Dog Inserted!</Toast.Body>
+      </Toast>
+      
+    </ToastContainer>
   </>)
 }
 

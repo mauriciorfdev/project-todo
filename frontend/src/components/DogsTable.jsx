@@ -1,6 +1,7 @@
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 import Toast from 'react-bootstrap/Toast'
+import ToastContainer from 'react-bootstrap/ToastContainer'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -70,9 +71,11 @@ const DogsTable = () => {
         )}
       </tbody>
     </Table>
-    <Toast bg='success' onClose={handleShow} show={show} delay={1000} autohide>
-      <Toast.Body>Dog Deleted</Toast.Body>
-    </Toast>
+    <ToastContainer position='top-end'>
+      <Toast bg='success' onClose={handleShow} show={show} delay={1000} autohide>
+        <Toast.Body>Dog Deleted</Toast.Body>
+      </Toast>
+    </ToastContainer>
   </>)
 }
 
