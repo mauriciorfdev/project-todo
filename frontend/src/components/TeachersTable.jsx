@@ -2,12 +2,14 @@ import Table from 'react-bootstrap/Table'
 import React, { useEffect, useState } from 'react'
 
 const TeachersTable = () => {
+  const url = 'https://project-todo-backend-6k0q.onrender.com'
+
   const [teachers, setTeachers] = useState([])
 
   useEffect(()=>{
     const fetchTeachers = async () => {
       try {
-        const resp = await fetch('http://localhost:5000/api/teachers')
+        const resp = await fetch(`${url}/api/teachers`)
         const data = await resp.json()
         setTeachers(data)
       } catch (error) {
