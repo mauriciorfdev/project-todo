@@ -11,7 +11,7 @@ const connectToDBAtlas = require('./config/db')
 
 const app = express();
 
-async function connectToDB(){
+/* async function connectToDB(){
     try {
         await mongoose.connect('mongodb://localhost:27017/test')
     } catch (error) {
@@ -20,8 +20,8 @@ async function connectToDB(){
     }
 }
 
-connectToDB()
-//connectToDBAtlas()
+connectToDB() */
+connectToDBAtlas()
 
 
 //Body Parser Middleware

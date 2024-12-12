@@ -44,9 +44,9 @@ const HomePage = () => {
       </tbody>
     </Table>
     </Container>
-    <Container>
+    {/* <Container>
         {showData && <DogsTable/>}
-    </Container>
+    </Container> */}
     <Container>
         {showData && <TeachersTable/>}
     </Container>
