@@ -1,17 +1,21 @@
 import Table from 'react-bootstrap/Table'
 import React, { useEffect, useState } from 'react'
+import Spinner from 'react-bootstrap/Spinner';
+
 
 const TeachersTable = () => {
-  const url = 'https://project-todo-backend-6k0q.onrender.com'
+  const url = import.meta.env.VITE_API_URL
 
   const [teachers, setTeachers] = useState([])
+  const [isDataLoading, setIsDataLoading] = useState(true)
 
   useEffect(()=>{
     const fetchTeachers = async () => {
       try {
-        const resp = await fetch(`${url}/api/teachers`)
+        const resp = await fetch(url)
         const data = await resp.json()
         setTeachers(data)
+        setIsDataLoading(!isDataLoading)
       } catch (error) {
         console.error('error while fetching teachers', error.message)
       }
@@ -22,6 +26,14 @@ const TeachersTable = () => {
 
   return (<>
     <div>TeachersTable</div>
+
+    {
+      isDataLoading && 
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    }
+    
     <Table>
       <thead>
         <tr>
