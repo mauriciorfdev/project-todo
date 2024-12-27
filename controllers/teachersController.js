@@ -13,11 +13,11 @@ const getSingleTeacher = async(req, res) => {
     try {
         const teacher = await TeachersModel.findById(id)
         if(!teacher){
-            return res.status(404).json({msg: 'Not Found'})
+            return res.status(404).json({msg: 'Teacher Not Found'})
         }
         return res.status(200).json(teacher)
     } catch (error) {
-        res.status(500).send({msg: `error`})
+        return res.status(500).json({msg: 'Internal server error', error: error.message})
     }
 }
 
