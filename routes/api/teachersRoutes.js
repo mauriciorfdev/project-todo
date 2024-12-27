@@ -1,21 +1,18 @@
 const express = require('express')
 const { TeachersModel } = require('../../models/TeachersModel')
 const router = express.Router()
+const { getTeachers,
+    getSingleTeacher,
+ } = require('../../controllers/teachersController')
 
 //api/teachers
 
-//desc      get all dogs
-router.get('/', async(req, res)=>{
-    const allTeachers = await TeachersModel.find();
-    return res.status(200).json(allTeachers)
-})
+//desc      get all teachers
+router.get('/', getTeachers)
 
 
 //desc      get single teacher
-router.get('/:id', async (req, res) => {
-    const teacher = await TeachersModel.findById(req.params.id)
-    return res.status(200).json(teacher)
-})
+router.get('/:id', getSingleTeacher)
 
 
 //desc      set teacher
@@ -46,8 +43,8 @@ router.delete('/:id', async(req, res) => {
     try {
         const data = await TeachersModel.findByIdAndDelete(id)
         if(!data){
-            res.send(404).send({msg:`no se puede eliminar id: ${id}`})
-        }else res.send(data)
+            return res.send(404).send({msg:`no se puede eliminar id: ${id}`})
+        }else return res.send(data)
     } catch (error) {
         res.status(500).send({msg: `error al eliminar el id ${id}`})
     }
