@@ -96,10 +96,10 @@ VITE v5.4.11  ready in 258 ms
 
 4.Test the API Endpoints using tools such as Postman or Thunder Client (VS Code Extension):
 
-- _METHOD - ENDPOINT:_
-
-- GET /api/teachers
-- GET /api/teachers/:id
-- POST /api/teachers
-- PUT /api/teachers/:id
-- DELETE /api/teachers/:id
+| Methods | Endpoint          | Actions                |
+| ------- | ----------------- | ---------------------- |
+| GET     | /api/teachers     | Get all teachers       |
+| GET     | /api/teachers/:id | Get teacher by `id`    |
+| POST    | /api/teachers     | Add new teacher        |
+| PUT     | /api/teachers/:id | Update teacher by `id` |
+| DELETE  | /api/teachers/:id | Remove teacher by `id` |
