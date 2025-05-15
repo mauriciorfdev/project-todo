@@ -1,12 +1,15 @@
 # CRUD API with MongoDB, ExpressJS, NodeJS & React
 
 ## About Project
-Simple application using the MERN stack. Also testing the front-end framework React Bootstrap
 
-The App handles the creation, retrieval, updating and deletion of data (*CRUD Operations*) in this case, for Teachers information.
+Simple application that performs CRUD operations on Teachers information.
 
+> _This project started with learning purposes on various topics: Express, REST API's, Front-end Frameworks (React Bootstrap) ... how to structure folders, and even how to add a demo GIF to this README.md file. This is why includes examples about "Members" or "Dogs" or "birds" (Found in tutorials, blogs, or official documentation)._
+
+> The following sections correspond to the "Teachers" Example
 
 ### Folder Structure Overview
+
 ```
 .
 ├── config
@@ -30,45 +33,55 @@ The App handles the creation, retrieval, updating and deletion of data (*CRUD Op
     └── .env
 ```
 
+### Path Overview:
 
-### Path Overview: 
-- *Backend:* ``~/Desktop/project-todo``
-- *Frontend:* ``~/Desktop/project-todo/frontend``
+- _Backend:_ `~/Desktop/project-todo`
+- _Frontend:_ `~/Desktop/project-todo/frontend`
 
 ## Getting Started
 
 ### Installation
+
 1. Clone the repo
+
 ```
     git clone https://github.com/mauriciorfdev/project-todo.git
 ```
 
-2. Install NPM Packages (*On Backend & Frontend*)
+2. Install NPM Packages (_On Backend & Frontend_)
+
 ```
 npm install
 ```
 
-3. Enter each API KEY (*.env* file) for:
+3. Enter each API KEY (_.env_ file) for:
 
-- __BACKEND__:
+- **BACKEND**:
+
 ```
     MONGO_URI = <your string>
 ```
-- __FRONTEND__ ( *TeachersTable Component* ):
+
+- **FRONTEND** ( _TeachersTable Component_ ):
 
 ```
     VITE_API_URL = http://localhost:5000/api/teachers
 ```
 
 ### Usage
+
 - Navigate to the Root Directory (project-name)
-1. Run the Backend Server: ``npm run dev``
+
+1. Run the Backend Server: `npm run dev`
+
 ```
 Server listen on port 5000...
 Connected to MongoDB Atlas!
 ```
-2. Change to the Frontend directory: ``cd frontend`` and then:
-3. Run the Frontend Server: ``npm run dev`` 
+
+2. Change to the Frontend directory: `cd frontend` and then:
+3. Run the Frontend Server: `npm run dev`
+
 ```
 VITE v5.4.11  ready in 258 ms
 
@@ -77,5 +90,16 @@ VITE v5.4.11  ready in 258 ms
   ➜  press h + enter to show help
 ```
 
-#### *Usage Demo*
+#### _Usage Demo_
+
 ![DEMO](demo/Animation.gif)
+
+4.Test the API Endpoints using tools such as Postman or Thunder Client (VS Code Extension):
+
+- _METHOD - ENDPOINT:_
+
+- GET /api/teachers
+- GET /api/teachers/:id
+- POST /api/teachers
+- PUT /api/teachers/:id
+- DELETE /api/teachers/:id
